@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="BooksApp.Views.LibraryPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+
+        <StackLayout>
+            <Image
+                HeightRequest="25"
+                HorizontalOptions="Start"
+                Source="menuIcon"
+                VerticalOptions="Start"
+                WidthRequest="25">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="MenuTapped" Tapped="MenuTapped_Tapped" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Label
+                Margin="28,25,0,0"
+                FontAttributes="Italic"
+                FontSize="10"
+                HorizontalOptions="CenterAndExpand"
+                Text="My Favorite Books"
+                TextColor="Red"
+                VerticalOptions="Start" />
+            <ListView
+                x:Name="lstMva"
+                Margin="0,40,0,0"
+                CachingStrategy="RetainElement"
+                HorizontalOptions="FillAndExpand"
+                IsPullToRefreshEnabled="True"
+                ItemSelected="lstMva_ItemSelected"
+                ItemsSource="{Binding .}"
+                Refreshing="lstMva_Refreshing"
+                RowHeight="60"
+                VerticalOptions="Start">
+
+
+                <!--  ListViewımızın başlık kısmı  -->
+
+
+
+                <!--  ListViewımızın içerik kısmı
+                 <ImageCell
+                            Detail="{Binding author}"
+                            DetailColor="Orange"
+                            ImageSource="{Binding imageUrl}"
+                            Text="{Binding title}"
+                            TextColor="Red">
+
+
+                            <ImageCell.ContextActions>
+                                <MenuItem
+                                    Clicked="onDetail"
+                                    IsDestructive="True"
+                                    Text="Detail" />
+
+                                <MenuItem Clicked="onAdd" Text="Add" />
+                            </ImageCell.ContextActions>
+
+
+
+                        </ImageCell>-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout
+                                Margin="20,0,20,0"
+                                BackgroundColor="White"
+                                HeightRequest="60"
+                                Orientation="Horizontal">
+
+                                <!--
+                                <Image
+                                    HeightRequest="20"
+                                    HorizontalOptions="Start"
+                                    Source="{Binding ImageUri}"
+                                    VerticalOptions="Center"
+                                    WidthRequest="20" />-->
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="14"
+                                    HorizontalOptions="Start"
+                                    Text="{Binding title}"
+                                    VerticalOptions="Center" />
+
+                                <Label
+                                    FontSize="14"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding author}"
+                                    VerticalOptions="Center" />
+
+                                <Label
+                                    FontAttributes="Italic"
+                                    FontSize="14"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding year_of_publication}"
+                                    VerticalOptions="Center" />
+
+                            </StackLayout>
+                            <ViewCell.ContextActions>
+                                <MenuItem
+                                    Clicked="MenuItem_Clicked"
+                                    IsDestructive="True"
+                                    Text="Delete" />
+
+                            </ViewCell.ContextActions>
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

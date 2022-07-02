@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Xamarin.Rating" Version="1.0.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Image\" />
+    <Folder Include="Model\" />
+    <Folder Include="Enum\" />
+    <Folder Include="DataContext\" />
+    <Folder Include="Services\" />
+    <Folder Include="Provider\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Image\" />
+    <None Remove="Model\" />
+    <None Remove="Enum\" />
+    <None Remove="DataContext\" />
+    <None Remove="Services\" />
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="Provider\" />
+    <None Remove="Xamarin.Rating" />
+  </ItemGroup>
+</Project>

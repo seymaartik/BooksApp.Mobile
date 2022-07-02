@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="BooksApp.Views.ProfilePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ContentPage.ToolbarItems>
+        <!--  Profil sayfasında favori kitapları ve istek listesini oluşturduk  -->
+        <ToolbarItem
+            Name="Favorite Book"
+            Activated="onFavoriteBook"
+            IconImageSource="favorite2.png"
+            Order="Primary"
+            Priority="1" />
+
+        <ToolbarItem
+            Name="Wish List"
+            IconImageSource="wishlist2.png"
+            Order="Primary"
+            Priority="2" />
+
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <!--  Profile sayfasının detay kısmını oluşturdum  -->
+        <StackLayout Margin="28,0,28,0">
+            <Label Text="Your Name: " TextColor="Brown" />
+            <Entry
+                x:Name="txtName"
+                FontAttributes="Bold"
+                Text="{Binding Name}"
+                TextColor="Brown" />
+
+            <Label Text="Your Surname: " TextColor="Brown" />
+            <Entry
+                x:Name="txtSurname"
+                FontAttributes="Bold"
+                Text="{Binding Surname}"
+                TextColor="Brown" />
+
+            <DatePicker x:Name="dtpBirthDate" TextColor="Brown" />
+
+            <Label Text="Your Email: " TextColor="Brown" />
+            <Entry
+                x:Name="txtEmail"
+                FontAttributes="Bold"
+                Keyboard="Email"
+                Text="{Binding Email}"
+                TextColor="Brown" />
+
+            <Label Text="Your Password: " TextColor="Brown" />
+            <Entry
+                x:Name="txtPass"
+                FontAttributes="Bold"
+                IsPassword="True"
+                Text="{Binding Pass}"
+                TextColor="Brown" />
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

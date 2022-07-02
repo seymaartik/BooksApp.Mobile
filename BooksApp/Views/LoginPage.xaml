@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="BooksApp.Views.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodel="clr-namespace:BooksApp.ViewModels"
+    BackgroundColor="Wheat"
+    NavigationPage.HasBackButton="False"
+    NavigationPage.HasNavigationBar="False"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False"
+    Shell.PresentationMode="ModalAnimated">
+
+    <!--  Burda ContentPage Login Modeli Bindg edildi  -->
+    <ContentPage.BindingContext>
+        <viewmodel:LoginViewModel />
+    </ContentPage.BindingContext>
+
+    <!--  Burda Login sayfamızın tasarımını yaptık  -->
+    <ContentPage.Content>
+        <StackLayout Margin="50,50" BackgroundColor="Transparent">
+
+            <Label
+                Margin="0,150,0,0"
+                FontAttributes="None"
+                FontSize="13"
+                HorizontalOptions="Start"
+                Text="Email adress"
+                TextColor="Brown"
+                VerticalOptions="Center" />
+
+            <Entry
+                Margin="0,13,0,0"
+                FontAttributes="None"
+                FontSize="14"
+                HorizontalOptions="FillAndExpand"
+                Placeholder="Enter email"
+                Text="{Binding Email}"
+                VerticalOptions="Start" />
+
+            <Label
+                Margin="0,20,0,0"
+                FontAttributes="None"
+                FontSize="13"
+                HorizontalOptions="Start"
+                Text="Password"
+                TextColor="Brown"
+                VerticalOptions="Start" />
+
+            <Entry
+                Margin="0,13,0,0"
+                FontAttributes="None"
+                FontSize="14"
+                HorizontalOptions="FillAndExpand"
+                IsPassword="True"
+                Placeholder="Enter password"
+                Text="{Binding Password}"
+                VerticalOptions="Start" />
+
+            <StackLayout
+                Margin="0,-20,0,0"
+                HorizontalOptions="Start"
+                Orientation="Horizontal"
+                VerticalOptions="FillAndExpand">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="Start"
+                    Text="Remember Me"
+                    TextColor="Brown"
+                    VerticalOptions="Center" />
+                <CheckBox
+                    x:Name="cbRemember"
+                    CheckedChanged="cbRemember_CheckedChanged"
+                    HorizontalOptions="Start"
+                    IsChecked="{Binding IsChecked}"
+                    VerticalOptions="Center"
+                    Color="Brown" />
+            </StackLayout>
+
+
+
+            <Button
+                x:Name="LoginButton"
+                Margin="0,0,0,50"
+                BackgroundColor="Brown"
+                BorderColor="Brown"
+                BorderWidth="1"
+                Clicked="LoginButton_Clicked"
+                CornerRadius="30"
+                HeightRequest="60"
+                HorizontalOptions="FillAndExpand"
+                Text="Login"
+                TextColor="White"
+                VerticalOptions="EndAndExpand" />
+
+            <Button
+                x:Name="RegisterButton"
+                Margin="0,0,0,0"
+                BackgroundColor="Brown"
+                BorderColor="Brown"
+                BorderWidth="1"
+                Clicked="RegisterButton_Clicked"
+                CornerRadius="30"
+                HeightRequest="60"
+                HorizontalOptions="FillAndExpand"
+                Text="Register"
+                TextColor="White"
+                VerticalOptions="EndAndExpand" />
+
+
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

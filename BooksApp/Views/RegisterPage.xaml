@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="BooksApp.Views.RegisterPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout Margin="50,50,50,100" BackgroundColor="Transparent">
+            <Label
+                Margin="0,50,0,0"
+                FontAttributes="None"
+                FontSize="13"
+                HorizontalOptions="Start"
+                Text="İsim Soyisim"
+                TextColor="Brown"
+                VerticalOptions="Center" />
+            <Entry
+                Margin="0,8,0,0"
+                FontAttributes="None"
+                FontSize="14"
+                HorizontalOptions="FillAndExpand"
+                Placeholder="Enter İsim Soyisim"
+                Text="{Binding Name}"
+                VerticalOptions="Start" />
+            <Label
+                Margin="0,50,0,0"
+                FontAttributes="None"
+                FontSize="13"
+                HorizontalOptions="Start"
+                Text="Email adress"
+                TextColor="Brown"
+                VerticalOptions="Center" />
+            <Entry
+                Margin="0,8,0,0"
+                FontAttributes="None"
+                FontSize="14"
+                HorizontalOptions="FillAndExpand"
+                Placeholder="Enter email"
+                Text="{Binding Email}"
+                VerticalOptions="Start" />
+            <Label
+                Margin="0,20,0,0"
+                FontAttributes="None"
+                FontSize="13"
+                HorizontalOptions="Start"
+                Text="Password"
+                TextColor="Brown"
+                VerticalOptions="Start" />
+            <Entry
+                Margin="0,8,0,0"
+                FontAttributes="None"
+                FontSize="14"
+                HorizontalOptions="FillAndExpand"
+                IsPassword="True"
+                Placeholder="Enter password"
+                Text="{Binding Password}"
+                VerticalOptions="Start" />
+
+            <Button
+                x:Name="RegisterButton"
+                Margin="0,0,0,0"
+                BackgroundColor="Brown"
+                BorderColor="Brown"
+                BorderWidth="1"
+                Clicked="RegisterButton_Clicked"
+                CornerRadius="30"
+                HeightRequest="60"
+                HorizontalOptions="FillAndExpand"
+                Text="Register"
+                TextColor="White"
+                VerticalOptions="EndAndExpand" />
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="BooksApp.Views.SelectionPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Shell.NavBarIsVisible="True">
+
+    <ContentPage.ToolbarItems>
+        <!--  Profil sayfasında favori kitapları ve istek listesini oluşturduk  -->
+        <ToolbarItem
+            x:Name="Completed"
+            Activated="Completed_Activated"
+            Order="Primary"
+            Priority="1"
+            Text="Tamamlandı" />
+
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
+    </ContentPage.Padding>
+
+
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Image
+                x:Name="IconMenu"
+                Margin="28,0,0,0"
+                HeightRequest="25"
+                HorizontalOptions="Start"
+                IsVisible="{Binding .}"
+                Source="menuIcon"
+                VerticalOptions="StartAndExpand"
+                WidthRequest="25">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="MenuTapped" Tapped="MenuTapped_Tapped" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <!--  Search Bar ekledim  -->
+            <SearchBar
+                x:Name="sbSearchBar"
+                BackgroundColor="LightGray"
+                FontAttributes="Bold"
+                Placeholder="Searching book"
+                TextChanged="onTextChanged"
+                TextColor="Brown" />
+
+            <!--  kitap add dediğimizde load sembolü çıkmasını sağlayack, sanki bişey yükleniyor  -->
+            <ActivityIndicator x:Name="activity" IsRunning="False" />
+
+
+            <!--  ListView ekledik ve sayfayı refrehs ettiğimizde olay tetiklenecek
+
+            <ListView.Header>
+                    <ContentView Padding="0,3" BackgroundColor="#fff">
+                        <Label
+                            FontSize="Medium"
+                            HorizontalTextAlignment="Center"
+                            Text="Choose your books"
+                            TextColor="Red"
+                            VerticalOptions="Center" />
+                    </ContentView>
+                </ListView.Header>
+            GroupDisplayBinding="{Binding Key}"
+                GroupShortNameBinding="{Binding Key}"-->
+            <ListView
+                x:Name="lstMva"
+                CachingStrategy="RetainElement"
+                IsPullToRefreshEnabled="True"
+                ItemsSource="{Binding .}"
+                Refreshing="onRefresh"
+                RowHeight="60">
+
+
+                <!--  ListViewımızın başlık kısmı  -->
+
+
+
+                <!--  ListViewımızın içerik kısmı
+                 <ImageCell
+                            Detail="{Binding author}"
+                            DetailColor="Orange"
+                            ImageSource="{Binding imageUrl}"
+                            Text="{Binding title}"
+                            TextColor="Red">
+
+
+                            <ImageCell.ContextActions>
+                                <MenuItem
+                                    Clicked="onDetail"
+                                    IsDestructive="True"
+                                    Text="Detail" />
+
+                                <MenuItem Clicked="onAdd" Text="Add" />
+                            </ImageCell.ContextActions>
+
+
+
+                        </ImageCell>-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout
+                                Margin="20,0,20,0"
+                                BackgroundColor="White"
+                                HeightRequest="60"
+                                Orientation="Horizontal">
+
+                                <!--
+                                <Image
+                                    HeightRequest="20"
+                                    HorizontalOptions="Start"
+                                    Source="{Binding ImageUri}"
+                                    VerticalOptions="Center"
+                                    WidthRequest="20" />-->
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="14"
+                                    HorizontalOptions="Start"
+                                    Text="{Binding title}"
+                                    VerticalOptions="Center" />
+
+                                <Label
+                                    FontSize="14"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding author}"
+                                    VerticalOptions="Center" />
+
+                                <Label
+                                    FontAttributes="Italic"
+                                    FontSize="14"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding year_of_publication}"
+                                    VerticalOptions="Center" />
+
+                            </StackLayout>
+                            <ViewCell.ContextActions>
+                                <MenuItem
+                                    Clicked="MenuItem_Clicked"
+                                    IsDestructive="True"
+                                    Text="Detail" />
+
+                                <MenuItem Clicked="onAdd" Text="Add" />
+                            </ViewCell.ContextActions>
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

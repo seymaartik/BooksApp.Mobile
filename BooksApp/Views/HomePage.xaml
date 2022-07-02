@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="BooksApp.Views.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="LightGray"
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarHasShadow="False"
+    Shell.NavBarIsVisible="False">
+
+    <ContentPage.Content>
+        <StackLayout
+            Margin="28,50,28,0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <Image
+                HeightRequest="25"
+                HorizontalOptions="Start"
+                Source="menuIcon"
+                VerticalOptions="StartAndExpand"
+                WidthRequest="25">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="MenuTapped" Tapped="MenuTapped_Tapped" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Label
+                Margin="0,100,0,0"
+                FontAttributes="Bold"
+                FontSize="13"
+                HorizontalOptions="CenterAndExpand"
+                Text="{Binding WelcomeText}"
+                VerticalOptions="CenterAndExpand" />
+
+            <Label
+                Margin="0,100,0,50"
+                FontAttributes="Bold"
+                FontSize="13"
+                HorizontalOptions="CenterAndExpand"
+                Text="Çıkış Yap"
+                TextColor="Red"
+                VerticalOptions="EndAndExpand">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="LogOut" Tapped="LogOut_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>
